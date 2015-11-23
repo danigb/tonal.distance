@@ -1,0 +1,39 @@
+{
+  "name": "tonal.distance",
+  "version": "0.0.0",
+  "private": "true",
+  "description": "The javascript music notation",
+  "main": "index.js",
+  "scripts": {
+    "test": "vows --spec test/*.js",
+    "docs": "documentation -f md > API.md",
+    "dist": "browserify index.js | uglifyjs > dist/tonal.distance.min.js&& ls -hall dist/",
+    "disc": "browserify --full-paths lib/index.js | uglifyjs | discify > tmp/disc.html",
+    "coverage": "istanbul cover vows test/**/*.test.js",
+    "cover": "npm run coverage && open ./coverage/lcov-report/index.html",
+    "climate": "npm run coverage && npm run codeclimate",
+    "codeclimate": "CODECLIMATE_REPO_TOKEN= codeclimate-test-reporter < coverage/lcov.info"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danigb/tonal.distance.git"
+  },
+  "keywords": [
+    "music",
+    "notation",
+    "parser",
+    "tonal"
+  ],
+  "author": "danigb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danigb/tonal.distance/issues"
+  },
+  "homepage": "https://github.com/danigb/tonal.distance#readme",
+  "devDependencies": {
+    "vows": "^0.8.x"
+  },
+  "dependencies": {
+    "tonal.pitch": "file:../pitch/lib"
+  }
+}
