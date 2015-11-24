@@ -1,14 +1,14 @@
 {
   "name": "tonal.distance",
-  "version": "0.0.0",
-  "private": "true",
-  "description": "The javascript music notation",
+  "version": "0.0.1",
+  "description": "Calculate the distance (interval) between notes",
   "main": "index.js",
   "scripts": {
+    "build": "npm test && npm run coverage && npm run docs && npm run disc && npm run dist",
     "test": "vows --spec test/*.js",
     "docs": "documentation -f md > API.md",
     "dist": "browserify index.js | uglifyjs > dist/tonal.distance.min.js&& ls -hall dist/",
-    "disc": "browserify --full-paths lib/index.js | uglifyjs | discify > tmp/disc.html",
+    "disc": "browserify --full-paths index.js | uglifyjs | discify > dist/disc.html",
     "coverage": "istanbul cover vows test/**/*.test.js",
     "cover": "npm run coverage && open ./coverage/lcov-report/index.html",
     "climate": "npm run coverage && npm run codeclimate",
@@ -20,8 +20,10 @@
   },
   "keywords": [
     "music",
-    "notation",
-    "parser",
+    "theory",
+    "distance",
+    "interval",
+    "note",
     "tonal"
   ],
   "author": "danigb",
@@ -34,6 +36,6 @@
     "vows": "^0.8.x"
   },
   "dependencies": {
-    "tonal.pitch": "file:../pitch/lib"
+    "tonal.pitch": "0.0.x"
   }
 }
